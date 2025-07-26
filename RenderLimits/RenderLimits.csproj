@@ -1,52 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="$(SolutionDir)\valheim.targets" />
   <PropertyGroup>
-    <TargetFramework>net4.8</TargetFramework>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-  <Target Name="CopyDLL" AfterTargets="ILRepacker">
-    <Copy
-      SourceFiles="$(TargetDir)$(ProjectName).dll"
-      DestinationFolder="$(ProjectDir)\..\..\Libs" />
-    <Message Text="Copied to Libs folder." Importance="High" />
-  </Target>
-  <ItemGroup>
-    <Reference Include="BepInEx.dll">
-      <HintPath>..\..\Libs\BepinEx.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.dll">
-      <HintPath>..\..\Libs\UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule.dll">
-      <HintPath>..\..\Libs\UnityEngine.CoreModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.InputLegacyModule.dll">
-      <HintPath>..\..\Libs\UnityEngine.InputLegacyModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI.dll">
-      <HintPath>..\..\Libs\UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.PhysicsModule.dll">
-      <HintPath>..\..\Libs\UnityEngine.PhysicsModule.dll</HintPath>
-    </Reference>
-    <Reference Include="0Harmony.dll">
-      <HintPath>..\..\Libs\0Harmony.dll</HintPath>
-    </Reference>
-    <Reference Include="BepInEx.Harmony.dll">
-      <HintPath>..\..\Libs\BepInEx.Harmony.dll</HintPath>
-    </Reference>
-    <Reference Include="assembly_valheim.dll">
-      <HintPath>..\..\Libs\assembly_valheim.dll</HintPath>
-    </Reference>
-    <Reference Include="assembly_utils.dll">
-      <HintPath>..\..\Libs\assembly_utils.dll</HintPath>
-    </Reference>
-    <Reference Include="ServerSync.dll">
-      <HintPath>..\..\Libs\ServerSync.dll</HintPath>
-    </Reference>
-  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="ILRepack.Lib.MSBuild.Task" Version="2.0.34.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ServerSync\ServerSync.csproj" />
   </ItemGroup>
 </Project>
