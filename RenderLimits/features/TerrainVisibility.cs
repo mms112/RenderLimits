@@ -12,6 +12,6 @@ public class TerrainVisibility
   }
   public static void Update()
   {
-    foreach (var obj in ObjectDB.FindObjectsOfType<Heightmap>()) Set(obj);
+    foreach (var obj in ObjectDB.FindObjectsByType<Heightmap>(UnityEngine.FindObjectsSortMode.None)) Set(obj);
   }
 }
